@@ -1,27 +1,21 @@
 # NgVideoGameDb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+Application will send API requests to "https://rawg-video-games-database.p.rapidapi.com" to get game db data.
 
-## Development server
+`getGameList` and `getGameDetails` functions in **Angular Service** file `http.service.ts` send API requests to get back **Observables** and we subscribe the **Observables** in component ts files to get the data.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Error interceptor inserts error state to the API requests. Header interceport inserts the header and key to the API requests.
 
-## Code scaffolding
+`search-bar` component sends the `game-search` as **Route Params** to `home` component. Then `home` component sends the API request with data from `game-search` params using service `getGameList`. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`home` component sends the game id as **Route Params** to `details` component. `details` component then sends the API request with data from game id params using service `getGameDetails`.
 
-## Build
+`details` component passes the `game` parameter to child component `game-tabs`. `game-tabs` component then dispay the tabs based on the data in `game` parameter
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`mwl-gauge` from module **angular-gauge** to provide the "gauge" view in game details page.
 
-## Running unit tests
+`mat-tab-group` from **Angular Material tabs** to provide "tabas" view in game details page.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
