@@ -4,7 +4,7 @@ Application will send API requests to "https://rawg-video-games-database.p.rapid
 
 `getGameList` and `getGameDetails` functions in **Angular Service** file `http.service.ts` send API requests to get back **Observables** and we subscribe the **Observables** in component ts files to get the data.
 
-Error interceptor inserts error state to the API requests. Header interceport inserts the header and key to the API requests.
+**Error interceptor** inserts error state to the API requests. **Header interceport** inserts the header and key to the API requests.
 
 `search-bar` component sends the `game-search` as **Route Params** to `home` component. Then `home` component sends the API request with data from `game-search` params using service `getGameList`. 
 
